@@ -1,5 +1,11 @@
 def deployer(ENVIR){
     node {
+	stage("Copy Artemis"){
+		timestamps {
+		ws {
+			git  'https://github.com/fuchicorp/artemis.git'
+		}
+	}
 	stage("Install Prerequisites"){
 		timestamps {
 			ws{
