@@ -3,8 +3,7 @@ def runpipeline(ENVIR){
     node {
         stage("sometime"){
         
-        sh "ls -l" 
-            ssh centos@"${ENVIR}"  ls /tmp
+            sh 'ssh centos@"${ENVIR}"  ls /tmp'
         }
     }
 }
