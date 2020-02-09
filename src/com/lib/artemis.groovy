@@ -1,5 +1,7 @@
 def deployer(ENVIR){
+	properties([parameters([choice(choices: ['dev1.acirrustech.com', 'qa1.acirrustech.com', 'stage1.acirrustech.com', 'prod1.acirrustech.com'], description: 'Please enter an environment', name: 'ENVIR')])])
     node {
+	  
 	stage("Copy Artemis"){
 		timestamps {
 		ws {
