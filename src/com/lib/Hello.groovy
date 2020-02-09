@@ -1,10 +1,10 @@
-def runpipeline(message){
+def runpipeline(ENVIR){
     echo "Hello"
     node {
         stage("sometime"){
         
         sh "ls -l" 
-            echo "${message}"
+            ssh centos@"${ENVIR}"  ls /tmp
         }
     }
 }
