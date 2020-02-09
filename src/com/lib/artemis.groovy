@@ -3,11 +3,9 @@ def deployer(ENVIR){
 	stage("Install Prerequisites"){
 		timestamps {
 			ws{
-				sh '''
-					ssh centos@${ENVIR} sudo yum install epel-release -y
-					ssh centos@${ENVIR} sudo yum install python-pip -y 
-					ssh centos@${ENVIR} sudo pip install Flask
-					'''
+				sh "ssh centos@${ENVIR} sudo yum install epel-release -y"
+				sh "ssh centos@${ENVIR} sudo yum install python-pip -y"
+				sh "ssh centos@${ENVIR} sudo pip install Flask"
 		}
 	}
 }
