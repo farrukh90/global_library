@@ -1,4 +1,9 @@
 def runpipeline(){
     echo "Hello"
-    sh "ls -l" 
+    node {
+        stage("sometime"){
+        
+        sh "ls -l" 
+        }
+    }
 }
