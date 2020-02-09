@@ -6,6 +6,7 @@ def deployer(ENVIR){
 			git  'https://github.com/fuchicorp/artemis.git'
 		}
 	}
+	}
 	stage("Install Prerequisites"){
 		timestamps {
 			ws{
