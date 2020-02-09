@@ -12,18 +12,14 @@ def deployer(ENVIR){
 	stage("Copy Artemis"){
 		timestamps {
 		ws {
-			sh '''
-				scp -r * centos@${ENVIR}:/tmp
-				'''
+			sh "scp -r * centos@${ENVIR}:/tmp"
 		}
 	}
 }
 	stage("Run Artemis"){
 		timestamps {
 			ws {
-				sh '''
-					ssh centos@${ENVIR} nohup python /tmp/artemis.py &
-					'''
+				sh "ssh centos@${ENVIR} nohup python /tmp/artemis.py & "
 		}
 	}
 }
