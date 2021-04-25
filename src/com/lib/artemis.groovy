@@ -1,8 +1,8 @@
-def deployer(ENVIR, REPO){
+def deployer(ENVIR, REPO, VERSION){
 	properties([
 		parameters([
 			choice(choices: ['dev1.acirrustech.com', 'qa1.acirrustech.com', 'stage1.acirrustech.com', 'prod1.acirrustech.com'], description: 'Please enter an environment', name: 'ENVIR'),
-			string(defaultValue: 'https://github.com/dbarnett/python-helloworld.git', description: 'https://github.com/dbarnett/python-helloworld.git', name: 'REPO', trim: false)		
+			string(defaultValue: 'https://github.com/farrukh90/artemis.git', description: 'https://github.com/farrukh90/artemis.git', name: 'REPO', trim: false)		
 			])
 		])
 	node {
@@ -10,6 +10,13 @@ def deployer(ENVIR, REPO){
 			timestamps {
 				ws {
 					git  "${REPO}"
+				}
+			}
+		}
+		stage("Checkout Version"){
+			timestamps {
+				ws {
+					sh "cd artemis && git checkout ${VERSION}"
 				}
 			}
 		}
