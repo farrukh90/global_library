@@ -14,15 +14,17 @@ def deployer(ENVIR, REPO, APP_VERSION){
 				}
 			}
 		}
-		// stage("Install Prerequisites"){
-		// 	timestamps {
-		// 		ws{
-		// 			sh "ssh centos@${ENVIR} sudo yum install epel-release -y"
-		// 			sh "ssh centos@${ENVIR} sudo yum install python-pip -y"
-		// 			sh "ssh centos@${ENVIR} sudo pip install Flask"
-		// 		}
-		// 	}
-		// }
+		stage("Install Prerequisites"){
+			timestamps {
+				ws{
+					withCredentials([sshUserPrivateKey(credentialsId: 'a24aa6aa-c4e7-49ee-afbe-eee47a654343', keyFileVariable: '', passphraseVariable: '', usernameVariable: '')]) {
+						sh "ssh centos@${ENVIR} sudo yum install epel-release -y"
+						sh "ssh centos@${ENVIR} sudo yum install python-pip -y"
+						sh "ssh centos@${ENVIR} sudo pip install Flask"
+					}
+				}
+			}
+		}
 		// stage("Copy Artemis"){
 		// 	timestamps {
 		// 		ws {
