@@ -2,7 +2,7 @@ def deployer(ENVIR, REPO){
 	properties([
 		parameters([
 			choice(choices: ['dev1.acirrustech.com', 'qa1.acirrustech.com', 'stage1.acirrustech.com', 'prod1.acirrustech.com'], description: 'Please enter an environment', name: 'ENVIR'),
-			parameters([string(defaultValue: 'https://github.com/dbarnett/python-helloworld.git', description: 'https://github.com/dbarnett/python-helloworld.git', name: 'REPO', trim: false)		
+			string(defaultValue: 'https://github.com/dbarnett/python-helloworld.git', description: 'https://github.com/dbarnett/python-helloworld.git', name: 'REPO', trim: false)		
 			])
 		])
 	node {
