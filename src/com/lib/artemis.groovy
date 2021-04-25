@@ -18,9 +18,9 @@ def deployer(ENVIR, REPO, APP_VERSION){
 			timestamps {
 				ws{
 					withCredentials([sshUserPrivateKey(credentialsId: 'a24aa6aa-c4e7-49ee-afbe-eee47a654343', keyFileVariable: '', passphraseVariable: '', usernameVariable: '')]) {
-						sh "ssh centos@${ENVIR} sudo yum install epel-release -y"
-						sh "ssh centos@${ENVIR} sudo yum install python-pip -y"
-						sh "ssh centos@${ENVIR} sudo pip install Flask"
+						sh "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no centos@${ENVIR} sudo yum install epel-release -y"
+						sh "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no centos@${ENVIR} sudo yum install python-pip -y"
+						sh "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no centos@${ENVIR} sudo pip install Flask"
 					}
 				}
 			}
