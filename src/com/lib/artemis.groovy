@@ -9,14 +9,7 @@ def deployer(ENVIR, REPO, APP_VERSION){
 		stage("Copy Artemis"){
 			timestamps {
 				ws {
-					checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: "${REPO}"]]])
-				}
-			}
-		}
-		stage("Checkout APP_VERSION"){
-			timestamps {
-				ws {
-					sh "cd artemis && git checkout ${APP_VERSION}"
+					checkout([$class: 'GitSCM', branches: [[name: "*/${APP_VERSION}"]], extensions: [], userRemoteConfigs: [[url: "${REPO}"]]])
 				}
 			}
 		}
