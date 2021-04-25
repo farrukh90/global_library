@@ -1,4 +1,4 @@
-def deployer(ENVIR, REPO, VERSION){
+def deployer(ENVIR, REPO, APP_VERSION){
 	properties([
 		parameters([
 			choice(choices: ['dev1.acirrustech.com', 'qa1.acirrustech.com', 'stage1.acirrustech.com', 'prod1.acirrustech.com'], description: 'Please enter an environment', name: 'ENVIR'),
@@ -13,10 +13,10 @@ def deployer(ENVIR, REPO, VERSION){
 				}
 			}
 		}
-		stage("Checkout Version"){
+		stage("Checkout APP_VERSION"){
 			timestamps {
 				ws {
-					sh "cd artemis && git checkout ${VERSION}"
+					sh "cd artemis && git checkout ${APP_VERSION}"
 				}
 			}
 		}
