@@ -2,7 +2,8 @@ def deployer(ENVIR, REPO, APP_VERSION){
 	properties([
 		parameters([
 			choice(choices: ['dev1.acirrustech.com', 'qa1.acirrustech.com', 'stage1.acirrustech.com', 'prod1.acirrustech.com'], description: 'Please enter an environment', name: 'ENVIR'),
-			string(defaultValue: 'https://github.com/farrukh90/artemis.git', description: 'https://github.com/farrukh90/artemis.git', name: 'REPO', trim: false)		
+			string(defaultValue: 'https://github.com/farrukh90/artemis.git', description: 'https://github.com/farrukh90/artemis.git', name: 'REPO', trim: false),
+			string(defaultValue: '0.1', description: 'Please specify App Version', name: "${APP_VERSION}", trim: false)
 			])
 		])
 	node {
