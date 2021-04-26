@@ -26,7 +26,7 @@ def deployer(ENVIR, REPO, APP_VERSION){
 		stage("Copy Artemis"){
 			timestamps {
 				ws {
-					sh "scp -rf * centos@${ENVIR}:/tmp"
+					sh "scp -r * centos@${ENVIR}:/tmp"
 				}
 			}
 		}
