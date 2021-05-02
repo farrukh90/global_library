@@ -20,3 +20,16 @@ def deploy(){
       }
   }
 }
+
+
+
+
+# To run this, create global library
+# in the jenkinsfile
+
+#@Library('global_library') _
+#def docker = new com.lib.docker()
+#   docker.deploy()
+
+
+
