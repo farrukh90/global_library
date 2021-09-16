@@ -1,4 +1,4 @@
-def imageBuilder(REPO)
+def imageBuilder(REPO){
     node {
         stage("Clone a Repo"){
             checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: ${REPO} ]]])
@@ -17,3 +17,4 @@ def imageBuilder(REPO)
             echo "Hello"
         }
     }
+}
